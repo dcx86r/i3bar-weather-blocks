@@ -9,6 +9,6 @@ To install:
 - In your ~/.i3status.conf file make sure this is in the general block:
 output_format = "i3bar"
 - In your ~/.i3/config find the bar block and add:
-status_command i3status | <path-to-weather.pl>
+status_command i3status | \<path-to-weather.pl\>
 - Comment out existing status_command i3status
 - Reload i3
