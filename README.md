@@ -11,4 +11,5 @@ output_format = "i3bar"
 - In your ~/.i3/config find the bar block and add:
 status_command i3status | \<path-to-weather.pl\>
 - Comment out existing status_command i3status
+- Replace the prepopulated METAR data URL with one relevant to your location
 - Reload i3
