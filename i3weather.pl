@@ -111,6 +111,14 @@ sub sky {
     return eskimo($sky, 'sky');
 }
 
+sub weather {
+    my $weather = pop(@{$m->{WEATHER}});
+    if ($weather =~ /\w/) {
+        $weather .= " $separator";
+    }
+    return eskimo($weather, 'weather');
+}
+
 ###############
 # In & out JSON
 ###############
@@ -123,6 +131,7 @@ my $temp;
 my $atmo;
 my $wind;
 my $sky;
+my $weather;
 
 # Unbuffered STDOUT
 $| = 1;
@@ -141,6 +150,7 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
         $atmo = atmo();
         $wind = wind();
         $sky = sky();
+        $weather = weather();
         $flag = 1;
     }
 
@@ -150,7 +160,7 @@ while (my ($statusline) = (<STDIN> =~ /^,?(.*)/)) {
     # Block order
     #############
 
-    @blocks = ($$sky,$$temp,$$wind,$$atmo,@blocks);
+    @blocks = ($$weather,$$sky,$$temp,$$wind,$$atmo,@blocks);
 
     # Output as JSON.
     print encode_json(\@blocks) . ",\n";
