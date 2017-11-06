@@ -8,7 +8,7 @@ use JSON;
 
 # METAR data request URL
 my $request = HTTP::Request->new(GET =>
-'http://weather.noaa.gov/pub/data/observations/metar/stations/CYKZ.TXT');
+'http://tgftp.nws.noaa.gov/data/observations/metar/stations/CYKZ.TXT');
 my $ua = LWP::UserAgent->new;
 my $m = Geo::METAR->new;
 my $curtime = time();
